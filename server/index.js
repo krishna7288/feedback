@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config()
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://krishna43835:NcSfWP4CX3KjocGn@cluster0.yoo4cyh.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
